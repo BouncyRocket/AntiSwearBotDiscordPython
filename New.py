@@ -11,7 +11,7 @@ from urllib import parse, request
 import re
 
 bot = commands.Bot(command_prefix='>', description="This is a Helper Bot")
-
+k = 0
 
 @bot.command()
 async def info(ctx):
@@ -26,9 +26,14 @@ async def info(ctx):
     await ctx.send(embed=embed)
 
 
+@bot.event
+async def on_ready():  
+    print (f'I Am Ready On')
+
+
 
 @bot.listen()
-async def on_message(message):
+async def on_message(ctx, message):
  if k == 1:
       x = datetime.datetime.now()
       y = message.channel.name
@@ -72,5 +77,5 @@ async def on_message(ctx, message):
 
 
 
-bot.run() #<- token goes here
+bot.run('OTM2OTgzMTQwNDgyODA5OTM2.YfVHjA.qVscSuOkkch_V6gHf4uHEG7_GDE') #<- token goes here
 
